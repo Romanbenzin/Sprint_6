@@ -9,7 +9,7 @@ def date_today():
 
 def checkbox_return():
     # импорт вынесен в функцию для избежания кругового импорта
-    from locators import select_black_checkbox, select_grey_checkbox
+    from locators_for_order import select_black_checkbox, select_grey_checkbox
     if int(date.today().day) % 2 == 0:
         return select_black_checkbox
     else:

@@ -3,10 +3,10 @@ import pytest
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from assertionts import assert_text_in_actual_value, assert_expected_equal_actual
+from assertions import assert_text_in_actual_value, assert_expected_equal_actual
 from data.data import url_main_page, url_order_page, url_dzen_page
 from selenium import webdriver
-from locators import popup_order_create, second_button_order, second_button_order_for_find, dzen_news
+from locators_for_order import popup_order_create, second_button_order, second_button_order_for_find
 from pages.order_page import OrderScooterPage
 
 class TestOrderPage:
@@ -14,10 +14,12 @@ class TestOrderPage:
     driver = None
 
     @classmethod
+    #@allure.step("Открытие браузера")
     def setup_class(cls):
         cls.driver = webdriver.Firefox()
 
     @classmethod
+    #@allure.step("Закрытие браузера")
     def teardown_class(cls):
         try:
             if cls.driver:
@@ -26,11 +28,13 @@ class TestOrderPage:
             print(f"Error closing driver: {e}")
 
     @pytest.fixture(scope='function')
+    @allure.step("Открытие главной страницы")
     def open_main_page(self):
         self.driver.get(url_main_page)
         self.order_page = OrderScooterPage(self.driver)
 
     @pytest.fixture(scope='function')
+    @allure.step("Открытие страницы заказов")
     def open_order_page(self):
         self.driver.get(url_order_page)
         self.order_page = OrderScooterPage(self.driver)
@@ -61,6 +65,36 @@ class TestOrderPage:
 
         actual_value = self.driver.find_element(*popup_order_create).text
         assert_text_in_actual_value(actual_value)
+
+class TestClickOnLogo:
+
+    driver = None
+
+    @classmethod
+    #@allure.step("Открытие браузера")
+    def setup_class(cls):
+        cls.driver = webdriver.Firefox()
+
+    @classmethod
+    #@allure.step("Закрытие браузера")
+    def teardown_class(cls):
+        try:
+            if cls.driver:
+                cls.driver.quit()
+        except Exception as e:
+            print(f"Error closing driver: {e}")
+
+    @pytest.fixture(scope='function')
+    @allure.step("Открытие главной страницы")
+    def open_main_page(self):
+        self.driver.get(url_main_page)
+        self.order_page = OrderScooterPage(self.driver)
+
+    @pytest.fixture(scope='function')
+    @allure.step("Открытие страницы заказов")
+    def open_order_page(self):
+        self.driver.get(url_order_page)
+        self.order_page = OrderScooterPage(self.driver)
 
     @allure.description("Тест открытия главной через логотип Самоката")
     def test_scooter_logo(self, open_order_page):
