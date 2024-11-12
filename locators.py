@@ -1,6 +1,12 @@
 from selenium.webdriver.common.by import By
 from helpers import date_today
 
+# main page:
+first_button_order = [By.XPATH, ".//button[@class='Button_Button__ra12g']"]
+second_button_order = [By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"]
+second_button_order_for_find = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
+cookie_button = [By.XPATH, ".//button[@class='App_CookieButton__3cvqF']"]
+
 # first order page:
 field_name = [By.XPATH, ".//input[@placeholder='* Имя']"]
 field_last_name = [By.XPATH, ".//input[@placeholder='* Фамилия']"]
@@ -19,3 +25,11 @@ select_rent_period = [By.CSS_SELECTOR, ".Dropdown-menu .Dropdown-option"]
 select_black_checkbox = [By.XPATH, ".//label[@for='black']"]
 select_grey_checkbox = [By.XPATH, ".//label[@for='grey']"]
 field_comment = [By.XPATH, ".//input[@placeholder='Комментарий для курьера']"]
+button_order = [By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"]
+
+# popup window
+popup_window = [By.XPATH, ".//div[@class='Order_Modal__YZ-d3']"]
+popup_button = [By.XPATH, ".//button[text()='Да']"]
+popup_order_create = [By.XPATH, ".//div[@class='Order_ModalHeader__3FDaJ']"]
+
+
