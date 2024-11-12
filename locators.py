@@ -6,6 +6,11 @@ first_button_order = [By.XPATH, ".//button[@class='Button_Button__ra12g']"]
 second_button_order = [By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"]
 second_button_order_for_find = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
 cookie_button = [By.XPATH, ".//button[@class='App_CookieButton__3cvqF']"]
+scooter_logo = [By.XPATH, ".//img[@src='/assets/scooter.svg']"]
+yandex_logo = [By.XPATH, ".//img[@src='/assets/ya.svg']"]
+
+# dzen_page
+dzen_news = (By.XPATH, ".//button[@class='arrow__button']")
 
 # first order page:
 field_name = [By.XPATH, ".//input[@placeholder='* Имя']"]
