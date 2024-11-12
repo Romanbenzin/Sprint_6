@@ -7,4 +7,4 @@ pytest --alluredir=allure-results
 allure serve allure_results
 
 #Если тесты не запускаются:
-$env:MY_PATH = "C:\Users\mmavr\yandex\six_sprint\print_6"
+$env:MY_PATH = "C:\Users\mmavr\yandex\six_sprint\Sprint_6"
