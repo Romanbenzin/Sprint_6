@@ -4,9 +4,8 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from assertions import assert_text_in_actual_value, assert_expected_equal_actual
-from data.data import URL_MAIN_PAGE, URL_ORDER_PAGE, URL_DZEN_PAGE
+from data.data import URL_MAIN_PAGE, URL_DZEN_PAGE
 from locators_for_order import popup_order_create, second_button_order, second_button_order_for_find
-from pages.order_page import OrderScooterPage
 
 @pytest.mark.usefixtures("driver")
 @pytest.mark.usefixtures("open_main_page")

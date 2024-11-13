@@ -3,14 +3,12 @@ import allure
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from locators_for_order import first_button_order, second_button_order, cookie_button
+from locators_for_order import first_button_order, second_button_order
 from locators_for_questions import first_question, question, answer
+from pages.base_page import BasePage
 
 
-class MainPageQuestions:
-
-    def __init__(self, driver):
-        self.driver = driver
+class MainPageQuestions(BasePage):
 
     @allure.step("Скролл до вопросов")
     def scroll_to_questions(self):
@@ -31,7 +29,3 @@ class MainPageQuestions:
     @allure.title("Переход на страницу заказа с помощью нижней кнопки")
     def click_on_second_button_order(self):
         self.driver.find_element(*second_button_order).click()
-
-    @allure.step("Клик по кнопке куки")
-    def click_on_cookie(self):
-        self.driver.find_element(*cookie_button).click()

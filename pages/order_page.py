@@ -3,13 +3,11 @@ import allure
 from helpers import list_of_index, checkbox_return, random_intercom_key
 from locators_for_order import field_name, field_last_name, field_addresses, field_metro_station, field_phone, button_next, \
     select_metro_station, field_scooter_arrive, field_data_picker, field_rent_period, select_rent_period, field_comment, \
-    button_order, popup_button, first_button_order, second_button_order, cookie_button, scooter_logo, yandex_logo
+    button_order, popup_button
+from pages.base_page import BasePage
 
 
-class OrderScooterPage:
-
-    def __init__(self, driver):
-        self.driver = driver
+class OrderScooterPage(BasePage):
 
     @allure.step("Заполнение поля: Имя")
     def set_name_first_page(self, name):
@@ -58,14 +56,6 @@ class OrderScooterPage:
     def button_order_click_second_page(self):
         self.driver.find_element(*button_order).click()
         self.driver.find_element(*popup_button).click()
-
-    @allure.step("Клик по лого Самокат")
-    def click_on_scooter_logo(self):
-        self.driver.find_element(*scooter_logo).click()
-
-    @allure.step("Клик по лого Яндекс")
-    def click_on_yandex_logo(self):
-        self.driver.find_element(*yandex_logo).click()
 
     @allure.title("Тест заказа")
     def input_data_customer(self):
