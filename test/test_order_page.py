@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from assertions import assert_text_in_actual_value, assert_expected_equal_actual
-from data.data import url_main_page, url_order_page, url_dzen_page
+from data.data import URL_MAIN_PAGE, URL_ORDER_PAGE, URL_DZEN_PAGE
 from selenium import webdriver
 from locators_for_order import popup_order_create, second_button_order, second_button_order_for_find
 from pages.order_page import OrderScooterPage
@@ -30,13 +30,13 @@ class TestOrderPage:
     @pytest.fixture(scope='function')
     @allure.step("Открытие главной страницы")
     def open_main_page(self):
-        self.driver.get(url_main_page)
+        self.driver.get(URL_MAIN_PAGE)
         self.order_page = OrderScooterPage(self.driver)
 
     @pytest.fixture(scope='function')
     @allure.step("Открытие страницы заказов")
     def open_order_page(self):
-        self.driver.get(url_order_page)
+        self.driver.get(URL_ORDER_PAGE)
         self.order_page = OrderScooterPage(self.driver)
 
     @allure.description("Тест заказа самоката с помощью первой кнопки заказа")
@@ -87,13 +87,13 @@ class TestClickOnLogo:
     @pytest.fixture(scope='function')
     @allure.step("Открытие главной страницы")
     def open_main_page(self):
-        self.driver.get(url_main_page)
+        self.driver.get(URL_MAIN_PAGE)
         self.order_page = OrderScooterPage(self.driver)
 
     @pytest.fixture(scope='function')
     @allure.step("Открытие страницы заказов")
     def open_order_page(self):
-        self.driver.get(url_order_page)
+        self.driver.get(URL_ORDER_PAGE)
         self.order_page = OrderScooterPage(self.driver)
 
     @allure.description("Тест открытия главной через логотип Самоката")
@@ -101,7 +101,7 @@ class TestClickOnLogo:
         self.order_page.click_on_scooter_logo()
         current_url = self.driver.current_url
 
-        assert_expected_equal_actual(url_main_page, current_url)
+        assert_expected_equal_actual(URL_MAIN_PAGE, current_url)
 
     @allure.description("Тест открытия Дзена через логотип Яндекса")
     def test_yandex_logo(self, open_order_page):
@@ -114,8 +114,8 @@ class TestClickOnLogo:
         new_window = [window for window in self.driver.window_handles if window != main_window][0]
         # Переключаемся на новое окно и ждем
         self.driver.switch_to.window(new_window)
-        WebDriverWait(self.driver, 30).until(lambda driver: self.driver.current_url == url_dzen_page)
+        WebDriverWait(self.driver, 30).until(lambda driver: self.driver.current_url == URL_DZEN_PAGE)
 
         current_url = self.driver.current_url
 
-        assert_expected_equal_actual(url_dzen_page, current_url)
+        assert_expected_equal_actual(URL_DZEN_PAGE, current_url)

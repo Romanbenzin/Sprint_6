@@ -3,7 +3,7 @@ import allure
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
-from locators_for_questions import first_question, question, field_questions, answer
+from locators_for_questions import first_question, question, answer
 
 
 class MainPageQuestions:
