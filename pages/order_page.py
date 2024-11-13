@@ -59,18 +59,6 @@ class OrderScooterPage:
         self.driver.find_element(*button_order).click()
         self.driver.find_element(*popup_button).click()
 
-    @allure.title("Переход на страницу заказа с помощью верхней кнопки")
-    def click_on_first_button_order(self):
-        self.driver.find_element(*first_button_order).click()
-
-    @allure.title("Переход на страницу заказа с помощью нижней кнопки")
-    def click_on_second_button_order(self):
-        self.driver.find_element(*second_button_order).click()
-
-    @allure.step("Клик по кнопке куки")
-    def click_on_cookie(self):
-        self.driver.find_element(*cookie_button).click()
-
     @allure.step("Клик по лого Самокат")
     def click_on_scooter_logo(self):
         self.driver.find_element(*scooter_logo).click()

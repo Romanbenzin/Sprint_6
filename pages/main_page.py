@@ -3,6 +3,7 @@ import allure
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from locators_for_order import first_button_order, second_button_order, cookie_button
 from locators_for_questions import first_question, question, answer
 
 
@@ -22,3 +23,15 @@ class MainPageQuestions:
         self.driver.find_elements(*question)[index].click()
         # Возвращает значение ответа
         return self.driver.find_elements(*answer)[index].text
+
+    @allure.title("Переход на страницу заказа с помощью верхней кнопки")
+    def click_on_first_button_order(self):
+        self.driver.find_element(*first_button_order).click()
+
+    @allure.title("Переход на страницу заказа с помощью нижней кнопки")
+    def click_on_second_button_order(self):
+        self.driver.find_element(*second_button_order).click()
+
+    @allure.step("Клик по кнопке куки")
+    def click_on_cookie(self):
+        self.driver.find_element(*cookie_button).click()
